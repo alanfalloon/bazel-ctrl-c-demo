@@ -6,7 +6,12 @@ If you run this test directly, but kill it early with Ctrl-C:
 
     $ ./my_test.py
     ^C
-    $
+    Traceback (most recent call last):
+    File "./my_test.py", line 30, in <module>
+        time.sleep(10)
+    File "./my_test.py", line 17, in signal_handler
+        raise RuntimeError(f"Caught signal {signal_num}")
+    RuntimeError: Caught signal 2
 
 Then the temporary file and child process are both cleaned up. This can be
 confirmed by looking for the temporary file and process:
